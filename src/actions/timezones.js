@@ -5,9 +5,9 @@ export function add( name ) {
 	}
 }
 
-export function remove( id ) {
+export function remove( name ) {
 	return {
 		type: 'REMOVE_TIMEZONE',
-		id
+		name
 	}
 }

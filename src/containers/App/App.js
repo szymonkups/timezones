@@ -1,19 +1,49 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import Timezone from './../../components/Timezone/Timezone';
+import { add as addTimezone, remove as removeTimezone } from './../../actions/timezones';
+import { getAllTimezones } from '../../utils/timezones';
+const zones = getAllTimezones();
 
 class App extends Component {
+	state = {
+		selectedTimezone: zones[ 0 ]
+	};
+
+	onTimezoneChange = ( event ) => {
+		this.setState( {
+			selectedTimezone: event.target.value
+		} )
+	};
+
+	onTimezoneAdd = ( event ) => {
+		this.props.addTimezone( this.state.selectedTimezone );
+		event.preventDefault();
+	};
+
 	render() {
 		const currentTime = this.props.currentTime;
 		const selectedTimezones = this.props.selectedTimezones;
 		const timezones = selectedTimezones.map( timezone =>
-			<Timezone key={ timezone.id } name={ timezone.name } time={ currentTime } />
+			<Timezone key={ timezone } name={ timezone } time={ currentTime } />
 		);
+
+		// TODO: set currently selected timezone after removal.
+		const allTimezones = zones
+			.filter( name => !selectedTimezones.includes( name ) )
+			.map( name => <option key={ name } value={ name }>{ name }</option> );
 
 		return (
 			<div>
 				<h1>Timezone converter</h1>
+				<form onSubmit={ this.onTimezoneAdd }>
+					<select value={ this.state.selectedTimezone } onChange={ this.onTimezoneChange } >
+						{ allTimezones }
+					</select>
+					<input type="submit" value="Add timezone" />
+				</form>
 				<ul>{ timezones }</ul>
 			</div>
 		);
@@ -25,4 +55,9 @@ const mapStateToProps = state => ( {
 	selectedTimezones: state.timezones
 } );
 
-export default connect( mapStateToProps )( App );
+const mapDispatchToProps = dispatch => ( {
+	addTimezone: bindActionCreators( addTimezone, dispatch ),
+	removeTimezone: bindActionCreators( addTimezone, removeTimezone )
+} );
+
+export default connect( mapStateToProps, mapDispatchToProps )( App );

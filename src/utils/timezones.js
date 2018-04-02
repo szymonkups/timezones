@@ -26,3 +26,7 @@ export function getCurrentTime() {
 export function getTimeInZone( time, zone ) {
 	return moment( time ).tz( zone ).format( 'HH:mm:ss' );
 }
+
+export function getAllTimezones() {
+	return moment.tz.names();
+}
