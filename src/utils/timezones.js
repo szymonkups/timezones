@@ -20,5 +20,9 @@ export function getUserTimezone() {
  * @return {String}
  */
 export function getCurrentTime() {
-	return moment().toString();
+	return moment().format();
+}
+
+export function getTimeInZone( time, zone ) {
+	return moment( time ).tz( zone ).format( 'HH:mm:ss' );
 }
