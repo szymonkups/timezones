@@ -2,7 +2,8 @@
 	background-color: #2e2e30;
 	border-radius: 10px;
 	margin-top: 10px;
-	height: 40px;
+	margin-bottom: 5px;
+	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.75);
 }
 
 
@@ -35,4 +36,10 @@
 :local .button:hover {
 	background-color: #d7404f;
 	color: white;
+}
+
+@media (max-width: 970px) {
+	:local .timezone, :local .button {
+		border-radius: 0;
+	}
 }
