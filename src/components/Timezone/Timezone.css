@@ -2,7 +2,7 @@
 	background-color: #2e2e30;
 	border-radius: 10px;
 	margin-top: 10px;
-	padding: 0;
+	height: 40px;
 }
 
 
@@ -10,7 +10,8 @@
 	font-size: 14px;
 	font-weight: 700;
 	color: #23a96e;
-	padding: 10px 15px;
+	height: 40px;
+	line-height: 40px;
 }
 
 :local .time {
@@ -21,12 +22,12 @@
 }
 
 :local .button {
-	display: block;
-	padding: 0;
 	height: 40px;
+	padding: 0;
 	text-align: center;
 	line-height: 40px;
 	color: #717171;
+	background-color: #2e2e30;
 	border-radius: 0 10px 10px 0;
 	cursor: pointer;
 }
