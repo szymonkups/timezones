@@ -20,9 +20,13 @@ class App extends Component {
 		} )
 	};
 
-	onTimezoneAdd = ( event ) => {
+	onTimezoneAdd = event => {
 		this.props.addTimezone( this.state.selectedTimezone );
 		event.preventDefault();
+	};
+
+	onTimezoneRemove = name => {
+		this.props.removeTimezone( name );
 	};
 
 	render() {
@@ -37,7 +41,7 @@ class App extends Component {
 		return (
 			<div className="container-fluid">
 				<Header />
-				<TimezoneList timezones={ selectedTimezones } time={ currentTime } />
+				<TimezoneList timezones={ selectedTimezones } time={ currentTime } onRemove={ this.onTimezoneRemove }/>
 				<form onSubmit={ this.onTimezoneAdd }>
 					<select value={ this.state.selectedTimezone } onChange={ this.onTimezoneChange } >
 						{ allTimezones }
@@ -56,7 +60,7 @@ const mapStateToProps = state => ( {
 
 const mapDispatchToProps = dispatch => ( {
 	addTimezone: bindActionCreators( addTimezone, dispatch ),
-	removeTimezone: bindActionCreators( addTimezone, removeTimezone )
+	removeTimezone: bindActionCreators( removeTimezone, dispatch )
 } );
 
 export default connect( mapStateToProps, mapDispatchToProps )( App );

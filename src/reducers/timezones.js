@@ -14,7 +14,7 @@ export default function timezones( state, action ) {
 	}
 
 	if ( action.type === 'REMOVE_TIMEZONE' ) {
-		return state.filter( timezone => timezone.id !== action.name );
+		return state.filter( timezone => timezone !== action.name );
 	}
 
 	// Return same state if no action is matched.
