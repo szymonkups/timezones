@@ -5,7 +5,7 @@ import styles from './TimezoneList.css';
 
 export default props => {
 	const timezones = props.timezones.map( timezone =>
-		<Timezone onRemove={ props.onRemove } key={ timezone } name={ timezone } time={ props.time } />
+		<Timezone onRemove={ props.onRemove } onTimeChange={ props.onTimeChange } key={ timezone } name={ timezone } time={ props.time } />
 	);
 
 	return (

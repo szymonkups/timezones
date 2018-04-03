@@ -4,8 +4,8 @@ export default function timezones( state, action ) {
 	// If state is undefined initially - return an array with default timezones: GMT and user's.
 	if ( state === undefined ) {
 		return [
-			'GMT',
-			getUserTimezone()
+			getUserTimezone(),
+			'GMT'
 		];
 	}
 

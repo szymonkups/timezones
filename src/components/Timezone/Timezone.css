@@ -17,9 +17,34 @@
 
 :local .time {
 	height: 40px;
-	text-align: center;
 	font-size: 26px;
 	background-color: #23a96e;
+	padding: 0;
+}
+
+:local .time > input {
+	background-color: transparent;
+	border: none;
+	height: 40px;
+	width: 40%;
+	outline: none;
+}
+
+:local input.hours {
+	text-align: right;
+}
+
+:local input.minutes {
+	width: 20%;
+}
+
+:local .period, :local .period:hover, :local .period:visited, :local .period:active, :local .period:link {
+	color: white;
+	text-decoration: none;
+	display: inline-block;
+	width: 10%;
+	cursor: pointer;
+	user-select: none;
 }
 
 :local .button {

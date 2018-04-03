@@ -24,9 +24,13 @@ export function getCurrentTime() {
 }
 
 export function getTimeInZone( time, zone ) {
-	return moment( time ).tz( zone ).format( 'HH:mm' );
+	return moment( time ).tz( zone );
 }
 
 export function getAllTimezones() {
 	return moment.tz.names();
+}
+
+export function getTimeString( hours, minutes, period, timezone ) {
+	return moment.tz( `${ hours } ${ minutes } ${ period }`, 'hh mm A', timezone ).format();
 }
