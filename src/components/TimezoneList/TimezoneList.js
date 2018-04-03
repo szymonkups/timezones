@@ -9,7 +9,7 @@ export default props => {
 	);
 
 	return (
-		<ul className={ [ 'row', 'justify-content-center', styles.list ].join( ' ' ) }>
+		<ul className={ styles.list }>
 			{ timezones }
 		</ul>
 	);

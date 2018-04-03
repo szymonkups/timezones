@@ -24,7 +24,7 @@ export function getCurrentTime() {
 }
 
 export function getTimeInZone( time, zone ) {
-	return moment( time ).tz( zone ).format( 'HH:mm:ss' );
+	return moment( time ).tz( zone ).format( 'HH:mm' );
 }
 
 export function getAllTimezones() {

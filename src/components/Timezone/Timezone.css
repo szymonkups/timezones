@@ -1,0 +1,37 @@
+:local .timezone {
+	background-color: #2e2e30;
+	border-radius: 10px;
+	margin-top: 10px;
+	padding: 0;
+}
+
+
+:local .name {
+	font-size: 14px;
+	font-weight: 700;
+	color: #23a96e;
+	padding: 10px 15px;
+}
+
+:local .time {
+	height: 40px;
+	text-align: center;
+	font-size: 26px;
+	background-color: #23a96e;
+}
+
+:local .button {
+	display: block;
+	padding: 0;
+	height: 40px;
+	text-align: center;
+	line-height: 40px;
+	color: #717171;
+	border-radius: 0 10px 10px 0;
+	cursor: pointer;
+}
+
+:local .button:hover {
+	background-color: #d7404f;
+	color: white;
+}
