@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import Timezone from './../../components/Timezone/Timezone';
+import TimezoneList from '../../components/TimezoneList/TimezoneList';
+import Header from '../../components/Header/Header'
+
 import { add as addTimezone, remove as removeTimezone } from './../../actions/timezones';
 import { getAllTimezones } from '../../utils/timezones';
 const zones = getAllTimezones();
@@ -26,9 +28,6 @@ class App extends Component {
 	render() {
 		const currentTime = this.props.currentTime;
 		const selectedTimezones = this.props.selectedTimezones;
-		const timezones = selectedTimezones.map( timezone =>
-			<Timezone key={ timezone } name={ timezone } time={ currentTime } />
-		);
 
 		// TODO: set currently selected timezone after removal.
 		const allTimezones = zones
@@ -36,15 +35,15 @@ class App extends Component {
 			.map( name => <option key={ name } value={ name }>{ name }</option> );
 
 		return (
-			<div>
-				<h1>Timezone converter</h1>
+			<div className="container-fluid">
+				<Header />
+				<TimezoneList timezones={ selectedTimezones } time={ currentTime } />
 				<form onSubmit={ this.onTimezoneAdd }>
 					<select value={ this.state.selectedTimezone } onChange={ this.onTimezoneChange } >
 						{ allTimezones }
 					</select>
 					<input type="submit" value="Add timezone" />
 				</form>
-				<ul>{ timezones }</ul>
 			</div>
 		);
 	}
