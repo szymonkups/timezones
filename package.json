@@ -20,5 +20,9 @@
     "coverage": "npm test -- --coverage",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://szymonkups.github.io/timezones"
+  "homepage": "https://szymonkups.github.io/timezones",
+  "devDependencies": {
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1"
+  }
 }

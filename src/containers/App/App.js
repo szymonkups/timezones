@@ -9,7 +9,7 @@ import TimezoneSelect from '../../components/TimezoneSelect/TimezoneSelect';
 import { add as addTimezone, remove as removeTimezone } from './../../actions/timezones';
 import { setNew as setNewTime, } from './../../actions/time';
 
-class App extends Component {
+export class App extends Component {
 	onTimezoneAdd = timezone => {
 		this.props.addTimezone( timezone );
 	};
