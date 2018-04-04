@@ -9,6 +9,7 @@ import './index.css';
 // Create redux store starting from root reducer.
 const store = createStore( rootReducer );
 
+// Render "App" component as application root.
 ReactDOM.render( (
 	<Provider store={ store } >
 		<App />

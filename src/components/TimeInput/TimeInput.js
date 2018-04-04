@@ -2,9 +2,16 @@ import React, { Component }  from 'react';
 import styles from './TimeInput.css';
 import { getTimeString } from '../../utils/timezones';
 
+/**
+ * Time input displaying [HH:MM AM/PM] on each timezone displayed.
+ */
 export default class TimeInput extends Component {
 	state = {};
 
+	/**
+	 * Called each time the hour input is entered.
+	 * It validates input data and sets component's state with new hours value.
+	 */
 	onHourChange = event => {
 		if ( !validateHour( event.target.value ) ) {
 			return;
@@ -15,6 +22,10 @@ export default class TimeInput extends Component {
 		} );
 	};
 
+	/**
+	 * Called each time the minute input is entered.
+	 * It validates input data and sets component's state with new minutes value.
+	 */
 	onMinutesChange = event => {
 		if ( !validateMinutes( event.target.value ) ) {
 			return;
@@ -25,20 +36,32 @@ export default class TimeInput extends Component {
 		} );
 	};
 
+	/**
+	 * Fired when keyboard key is pressed inside input. Executes time change when Enter key is pressed.
+	 */
 	onKeyPress = event => {
 		if ( event.key === 'Enter' ) {
 			this.handleTimeChange();
 		}
 	};
 
+	/**
+	 * Fired when input is focused - selects all the content inside.
+	 */
 	onInputFocus = event => {
 		event.target.select();
 	};
 
+	/**
+	 * When input is blurred we update current time.
+	 */
 	onInputBlur = () => {
 		this.handleTimeChange();
 	};
 
+	/**
+	 * Called when AM/PM period is changed.
+	 */
 	onPeriodToggle = () => {
 		const currentPeriod = this.state.period;
 		const newPeriod = currentPeriod === 'AM' ? 'PM' : 'AM';
@@ -47,6 +70,9 @@ export default class TimeInput extends Component {
 		this.handleTimeChange( newPeriod );
 	};
 
+	/**
+	 * Calls props.onTimeChange function with new time provided.
+	 */
 	handleTimeChange( newPeriod ) {
 		const newTimeString = getTimeString(
 			this.state.hours,
@@ -58,6 +84,9 @@ export default class TimeInput extends Component {
 		this.props.onTimeChange( newTimeString  );
 	}
 
+	/**
+	 * Updates state each time hour, minutes, period props of this component are change.
+	 */
 	static getDerivedStateFromProps( nextProps ) {
 		const timeInZone = nextProps.time;
 		const hours = timeInZone.format( 'hh' );
@@ -103,12 +132,24 @@ export default class TimeInput extends Component {
 	}
 }
 
+/**
+ * Validates hours string.
+ *
+ * @param newValue
+ * @return {boolean}
+ */
 function validateHour( newValue ) {
 	const newIntValue = parseInt( newValue, 10 );
 
 	return !( isNaN( newIntValue ) || newIntValue > 12 || newIntValue < 1 );
 }
 
+/**
+ * Validates minutes string.
+ *
+ * @param newValue
+ * @return {boolean}
+ */
 function validateMinutes( newValue ) {
 	const newIntValue = parseInt( newValue, 10 );
 

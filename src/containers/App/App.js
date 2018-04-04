@@ -10,14 +10,23 @@ import { add as addTimezone, remove as removeTimezone } from './../../actions/ti
 import { setNew as setNewTime, } from './../../actions/time';
 
 export class App extends Component {
+	/**
+	 * Called each time a timezone is added.
+	 */
 	onTimezoneAdd = timezone => {
 		this.props.addTimezone( timezone );
 	};
 
+	/**
+	 * Called each time a timezone is removed.
+	 */
 	onTimezoneRemove = name => {
 		this.props.removeTimezone( name );
 	};
 
+	/**
+	 * Called when currently displayed time should be changed.
+	 */
 	onTimeChange = time => {
 		this.props.setNewTime( time );
 	};
