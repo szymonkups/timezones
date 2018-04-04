@@ -47,3 +47,7 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+textarea:focus, input:focus, button:focus, select:focus {
+	outline: none;
+}
