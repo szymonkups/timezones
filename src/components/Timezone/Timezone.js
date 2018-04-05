@@ -2,11 +2,12 @@ import React  from 'react';
 import TimeInput from '../TimeInput/TimeInput';
 import styles from './Timezone.css';
 import { getTimeInZone } from '../../utils/timezones';
+import PropTypes from 'prop-types';
 
 /**
  * Component representing single timezone on timezones list.
  */
-export default props => {
+const Timezone = props => {
 	const remove = () => props.onRemove( props.name );
 
 	return (
@@ -29,3 +30,12 @@ export default props => {
 		</li>
 	);
 };
+
+Timezone.propTypes = {
+	onRemove: PropTypes.func.isRequired,
+	onTimeChange: PropTypes.func.isRequired,
+	name: PropTypes.string.isRequired,
+	time: PropTypes.string.isRequired
+};
+
+export default Timezone;

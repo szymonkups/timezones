@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import { getAllTimezones } from '../../utils/timezones';
 import styles from './TimezoneSelect.css';
+import PropTypes from 'prop-types';
 const zones = getAllTimezones();
 
 /**
  * Component responsible for selecting new timezone.
  */
 export default class TimezoneSelect extends Component {
+	static propTypes = {
+		onAdd: PropTypes.func.isRequired
+	};
+
 	state = {
 		selectedTimezone: zones[ 0 ]
 	};

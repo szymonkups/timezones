@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import PropTypes from 'prop-types';
 import styles from './TimeInput.css';
 import { getTimeString } from '../../utils/timezones';
 
@@ -6,6 +7,12 @@ import { getTimeString } from '../../utils/timezones';
  * Time input displaying [HH:MM AM/PM] on each timezone displayed.
  */
 export default class TimeInput extends Component {
+	static propTypes = {
+		time: PropTypes.object.isRequired,
+		name: PropTypes.string.isRequired,
+		onTimeChange: PropTypes.func.isRequired
+	};
+
 	state = {};
 
 	/**
