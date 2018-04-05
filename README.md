@@ -15,3 +15,9 @@ Start application:
 ```
 yarn start
 ```
+
+To start test use:
+
+```
+yarn test
+```
