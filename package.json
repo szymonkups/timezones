@@ -19,5 +19,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "homepage": "https://szymonkups.github.io/timezones"
+  "homepage": "https://szymonkups.github.io/timezones",
+  "devDependencies": {
+    "sinon": "^4.5.0"
+  }
 }
