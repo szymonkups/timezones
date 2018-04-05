@@ -3,17 +3,26 @@ import { getAllTimezones } from '../../utils/timezones';
 import styles from './TimezoneSelect.css';
 const zones = getAllTimezones();
 
+/**
+ * Component responsible for selecting new timezone.
+ */
 export default class TimezoneSelect extends Component {
 	state = {
 		selectedTimezone: zones[ 0 ]
 	};
 
+	/**
+	 * Called when a timezone in input select is changed.
+	 */
 	onTimezoneChange = event => {
 		this.setState( {
 			selectedTimezone: event.target.value
 		} )
 	};
 
+	/**
+	 * Called when a timezone is selected and "Add timezone" button is pressed.
+	 */
 	onTimezoneAdd = event => {
 		event.preventDefault();
 

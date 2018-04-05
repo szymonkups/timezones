@@ -3,6 +3,9 @@ import TimeInput from '../TimeInput/TimeInput';
 import styles from './Timezone.css';
 import { getTimeInZone } from '../../utils/timezones';
 
+/**
+ * Component representing single timezone on timezones list.
+ */
 export default props => {
 	const remove = () => props.onRemove( props.name );
 
