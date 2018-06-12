@@ -1,4 +1,4 @@
-## Timezone converter
+## Timezones converter
 
 Repository created using [create-react-app](https://github.com/facebook/create-react-app).
 
